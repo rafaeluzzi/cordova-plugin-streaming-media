@@ -190,7 +190,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 												 name:UIDeviceOrientationDidChangeNotification
 											   object:nil];
 
-	moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+	moviePlayer.controlStyle = MPMovieControlStyleNone;
 	moviePlayer.shouldAutoplay = YES;
 	if (imageView != nil) {
 		[moviePlayer.backgroundView setAutoresizesSubviews:YES];
@@ -204,7 +204,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[self.viewController.view bringSubviewToFront:moviePlayer.view];
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
-        [moviePlayer setFullscreen:NO animated:NO];
+        [moviePlayer setFullscreen:YES animated:NO];
     } else {
         [moviePlayer setFullscreen:NO animated:NO];
     }
