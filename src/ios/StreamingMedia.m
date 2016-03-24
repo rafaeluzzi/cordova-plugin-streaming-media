@@ -196,18 +196,12 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 		[moviePlayer.backgroundView addSubview:imageView];
 	}
 	moviePlayer.backgroundView.backgroundColor = backgroundColor;
-	//[self.viewController.view addSubview:moviePlayer.view];
-	 // Set the modal transition style of your choice
-    moviePlayer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-    // Present the movie player view controller
-    [self presentViewController:moviePlayer animated:YES completion:nil];
-
+	[self.viewController.view addSubview:moviePlayer.view];
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
-        [moviePlayer setFullscreen:YES animated:YES];
+        [moviePlayer setFullscreen:YES animated:NO];
     } else {
-        [moviePlayer setFullscreen:NO animated:YES];
+        [moviePlayer setFullscreen:NO animated:NO];
     }
 }
 
@@ -273,9 +267,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 		[moviePlayer setInitialPlaybackTime:-1];
 		[moviePlayer stop];
 		moviePlayer.controlStyle = MPMovieControlStyleNone;
-		// [moviePlayer.view removeFromSuperview];
-		// Dismiss the view controller
-        	[self dismissViewControllerAnimated:YES completion:nil];
+		[moviePlayer.view removeFromSuperview];
 		moviePlayer = nil;
 	}
 }
