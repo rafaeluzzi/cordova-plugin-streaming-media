@@ -190,7 +190,6 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 											   object:nil];
 
 	moviePlayer.controlStyle = MPMovieControlStyleNone;
-	moviePlayer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	moviePlayer.shouldAutoplay = YES;
 	if (imageView != nil) {
 		[moviePlayer.backgroundView setAutoresizesSubviews:YES];
