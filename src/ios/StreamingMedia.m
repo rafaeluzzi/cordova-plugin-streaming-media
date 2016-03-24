@@ -197,7 +197,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 		[moviePlayer.backgroundView addSubview:imageView];
 	}
 	moviePlayer.backgroundView.backgroundColor = backgroundColor;
-	CGRect frame = CGRectMake(0, 0, 300, 500);
+	CGRect frame = CGRectMake(0, 0, moviePlayer.view.frame.size.width, moviePlayer.view.frame.size.height);
         [moviePlayer.view setFrame:frame];  // player's frame must match parent's
 	[self.viewController.view addSubview:moviePlayer.view];
 	[self.viewController.view bringSubviewToFront:moviePlayer.view];
