@@ -199,7 +199,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[self.viewController.view addSubview:moviePlayer.view];
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
-        [moviePlayer setFullscreen:YES animated:NO];
+        [moviePlayer setFullscreen:YES animated:YES];
     } else {
         [moviePlayer setFullscreen:NO animated:NO];
     }
