@@ -201,9 +201,9 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
-        [moviePlayer setFullscreen:YES animated:NO];
+        [moviePlayer setFullscreen:YES animated:YES];
     } else {
-        [moviePlayer setFullscreen:NO animated:NO];
+        [moviePlayer setFullscreen:NO animated:YES];
     }
 }
 
@@ -244,7 +244,6 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 - (void)cleanup {
 	
 	NSLog(@"Clean up");
-	[self.viewController dismissViewControllerAnimated:NO completion:nil];
 	imageView = nil;
     initFullscreen = false;
 	backgroundColor = nil;
