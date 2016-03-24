@@ -211,11 +211,10 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 }
 -(void) onPlayerTapped:(UIGestureRecognizer *)gestureRecognizer {
     [self cleanup];
-isInPlayingMode = NO;
 	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
-#pragma mark - gesture delegate
+#pragma mark - UIGestureRecognizerDelegate
 // this allows you to dispatch touches
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return YES;
