@@ -203,6 +203,17 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     } else {
         [moviePlayer setFullscreen:NO animated:NO];
     }
+    /* add tap handler */
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPlayerTapped:)];
+    singleFingerTap.numberOfTapsRequired = 1;
+    singleFingerTap.delegate = self;
+    [moviePlayer.view addGestureRecognizer:singleFingerTap];
+}
+-(void) onPlayerTapped:(UIGestureRecognizer *)gestureRecognizer {
+    [self cleanup];
+
+	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
