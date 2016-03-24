@@ -207,7 +207,8 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPlayerTapped:)];
     singleFingerTap.numberOfTapsRequired = 1;
     singleFingerTap.delegate = self;
-    [moviePlayer.view addGestureRecognizer:singleFingerTap];
+    //[moviePlayer.view addGestureRecognizer:singleFingerTap];
+    [[moviePlayer.view.subviews objectAtIndex:0] addGestureRecognizer:singleFingerTap];
 }
 -(void) onPlayerTapped:(UIGestureRecognizer *)gestureRecognizer {
     [self cleanup];
