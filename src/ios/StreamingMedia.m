@@ -198,6 +198,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	}
 	moviePlayer.backgroundView.backgroundColor = backgroundColor;
 	[self.viewController.view addSubview:moviePlayer.view];
+	[self.viewController.view bringSubviewToFront:moviePlayer.view];
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
         [moviePlayer setFullscreen:NO animated:NO];
