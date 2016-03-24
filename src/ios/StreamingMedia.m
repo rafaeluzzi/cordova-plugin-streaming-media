@@ -214,7 +214,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
-#pragma mark - UIGestureRecognizerDelegate
+#pragma mark - gesture delegate
 // this allows you to dispatch touches
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return YES;
