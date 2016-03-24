@@ -10,7 +10,6 @@
 	- (void)startPlayer:(NSString*)uri;
 	- (void)moviePlayBackDidFinish:(NSNotification*)notification;
 	- (void)cleanup;
-	- (void)onPlayerTapped;
 @end
 
 @implementation StreamingMedia {
