@@ -244,8 +244,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 - (void)cleanup {
 	
 	NSLog(@"Clean up");
-	[self.viewController dismissViewControllerAnimated:YES completion:nil];
-	self.viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+	[self.viewController dismissViewControllerAnimated:NO completion:nil];
 	imageView = nil;
     initFullscreen = false;
 	backgroundColor = nil;
