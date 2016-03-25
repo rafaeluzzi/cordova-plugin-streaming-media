@@ -226,12 +226,10 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
 -(void) testTap:(UIGestureRecognizer *)gestureRecognizer {
-	// open a alert with an OK and cancel button
-UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView"
-        message:@"My message" delegate:self cancelButtonTitle:@"Cancel"
-        otherButtonTitles:@"OK", nil];
-[alert show];
-[alert release];
+   		UIAlertController *alertController = [UIAlertController
+                              alertControllerWithTitle:alertTitle
+                              message:alertMessage
+                              preferredStyle:UIAlertControllerStyleAlert];
 }
 #pragma mark - Gesture Delegate
 // this allows you to dispatch touches
