@@ -189,11 +189,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 											 selector:@selector(orientationChanged:)
 												 name:UIDeviceOrientationDidChangeNotification
 											    object:nil];
-	// Listen for fullscreen
-	[[NSNotificationCenter defaultCenter] addObserver:self
-                       selector:@selector(willEnterFullScreen:)
-                         name:MPMoviePlayerWillEnterFullscreenNotification
-                          object:nil];
+
 	moviePlayer.controlStyle = MPMovieControlStyleNone;
 	moviePlayer.shouldAutoplay = YES;
 	if (imageView != nil) {
@@ -208,7 +204,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[self.viewController.view bringSubviewToFront:moviePlayer.view];
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
-        [moviePlayer setFullscreen:YES animated:NO];
+        [moviePlayer setFullscreen:NO animated:NO];
     } else {
         [moviePlayer setFullscreen:NO animated:NO];
     }
@@ -234,16 +230,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
-- (void) willEnterFullScreen:(NSNotification*)notification
-{
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPlayerTapped:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.delegate = self;
-    UIView *aView = [[UIView alloc] initWithFrame:moviePlayer.backgroundView.bounds];
-    [aView addGestureRecognizer:tapGesture];
-    [moviePlayer.view addSubview:aView];
-    [moviePlayer.view bringSubviewToFront:aView];
-}
+
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
 	NSDictionary *notificationUserInfo = [notification userInfo];
 	NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
@@ -300,10 +287,6 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 							removeObserver:self
 									  name:UIDeviceOrientationDidChangeNotification
 									object:nil];
-	[[NSNotificationCenter defaultCenter]
-							removeObserver:self
-						        name:MPMoviePlayerWillEnterFullscreenNotification
-						       object:nil];
 
 	if (moviePlayer) {
 		moviePlayer.fullscreen = NO;
