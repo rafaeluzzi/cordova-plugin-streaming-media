@@ -213,7 +213,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     singleFingerTap.numberOfTapsRequired = 1;
     singleFingerTap.delegate = self;
     //[moviePlayer.view addGestureRecognizer:singleFingerTap];
-    [[moviePlayer.view.subviews objectAtIndex:0] addGestureRecognizer:singleFingerTap];
+    [[self.viewController.view.subviews objectAtIndex:0] addGestureRecognizer:singleFingerTap];
 }
 -(void) onPlayerTapped:(UIGestureRecognizer *)gestureRecognizer {
     [moviePlayer pause];
