@@ -241,7 +241,8 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     tapGesture.delegate = self;
     UIView *aView = [[UIView alloc] initWithFrame:moviePlayer.backgroundView.bounds];
     [aView addGestureRecognizer:tapGesture];
-    [self.view.window addSubview:aView];
+    [self.viewController.view addSubview:aView];
+    [self.viewController.view bringSubviewToFront:aView];
 }
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
 	NSDictionary *notificationUserInfo = [notification userInfo];
