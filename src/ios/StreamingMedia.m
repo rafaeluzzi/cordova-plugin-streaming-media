@@ -242,6 +242,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     UIView *aView = [[UIView alloc] initWithFrame:moviePlayer.backgroundView.bounds];
     [aView addGestureRecognizer:tapGesture];
     [moviePlayer.view addSubview:aView];
+    [moviePlayer.view bringSubviewToFront:aView];
 }
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
 	NSDictionary *notificationUserInfo = [notification userInfo];
