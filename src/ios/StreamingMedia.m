@@ -226,7 +226,11 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
 -(void) testTap:(UIGestureRecognizer *)gestureRecognizer {
-
+	NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Glass" ofType:@"mp3"];
+SystemSoundID soundID;
+AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:path], &soundID);
+AudioServicesPlaySystemSound(soundID);
+AudioServicesDisposeSystemSoundID(soundID);
 }
 #pragma mark - Gesture Delegate
 // this allows you to dispatch touches
