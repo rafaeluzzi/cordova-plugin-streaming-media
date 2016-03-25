@@ -188,12 +188,12 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(orientationChanged:)
 												 name:UIDeviceOrientationDidChangeNotification
-											    object:nil];	
-	// Listen for fullscreen							    
+											    object:nil];
+	// Listen for fullscreen
 	[[NSNotificationCenter defaultCenter] addObserver:self
-						                                         selector:@selector(willEnterFullScreen:)
-						                                             name:MPMoviePlayerWillEnterFullscreenNotification
-						                                           object:nil];
+                       selector:@selector(willEnterFullScreen:)
+                         name:MPMoviePlayerWillEnterFullscreenNotification
+                          object:nil];
 	moviePlayer.controlStyle = MPMovieControlStyleNone;
 	moviePlayer.shouldAutoplay = YES;
 	if (imageView != nil) {
@@ -202,7 +202,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	}
 	moviePlayer.backgroundView.backgroundColor = backgroundColor;
 	CGRect frame = CGRectMake(0.0f, 0.0f, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height);
-	
+
         [moviePlayer.view setFrame:frame];  // player's frame must match parent's
 	[self.viewController.view addSubview:moviePlayer.view];
 	[self.viewController.view bringSubviewToFront:moviePlayer.view];
@@ -279,7 +279,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 }
 
 - (void)cleanup {
-	
+
 	NSLog(@"Clean up");
 	imageView = nil;
     initFullscreen = false;
@@ -300,10 +300,11 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 							removeObserver:self
 									  name:UIDeviceOrientationDidChangeNotification
 									object:nil];
-	[[NSNotificationCenter defaultCenter] 		removeObserver:self
-						                           name:MPMoviePlayerWillEnterFullscreenNotification
-						                                           object:nil];
-						                                           
+	[[NSNotificationCenter defaultCenter]
+							removeObserver:self
+						        name:MPMoviePlayerWillEnterFullscreenNotification
+						       object:nil];
+
 	if (moviePlayer) {
 		moviePlayer.fullscreen = NO;
 		[moviePlayer setInitialPlaybackTime:-1];
@@ -311,7 +312,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 		moviePlayer.controlStyle = MPMovieControlStyleNone;
 		[moviePlayer.view removeFromSuperview];
 		[aView removeFromSuperview];
-		aView = nil;	
+		aView = nil;
 		moviePlayer = nil;
 	}
 }
