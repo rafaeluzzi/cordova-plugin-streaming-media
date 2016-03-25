@@ -201,7 +201,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 
         [moviePlayer.view setFrame:frame];  // player's frame must match parent's
 	[self.viewController.view addSubview:moviePlayer.view];
-	[self.viewController.view bringSubviewToFront:moviePlayer.view];
+	//[self.viewController.view bringSubviewToFront:moviePlayer.view];
 	// Note: animating does a fade to black, which may not match background color
     if (initFullscreen) {
         [moviePlayer setFullscreen:NO animated:NO];
@@ -213,7 +213,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     singleFingerTap.numberOfTapsRequired = 1;
     singleFingerTap.delegate = self;
     [moviePlayer.view addGestureRecognizer:singleFingerTap];
-    [[self.viewController.view.subviews objectAtIndex:0] addGestureRecognizer:singleFingerTap];
+    //[[self.viewController.view.subviews objectAtIndex:0] addGestureRecognizer:singleFingerTap];
 }
 -(void) onPlayerTapped:(UIGestureRecognizer *)gestureRecognizer {
     [self cleanup];
