@@ -220,7 +220,6 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     [[self.viewController.view.subviews objectAtIndex:0] addGestureRecognizer:singleFingerTap];
 }
 -(void) onPlayerTapped:(UIGestureRecognizer *)gestureRecognizer {
-    [moviePlayer pause];
     [self cleanup];
 	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
@@ -242,8 +241,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
     tapGesture.delegate = self;
     UIView *aView = [[UIView alloc] initWithFrame:moviePlayer.backgroundView.bounds];
     [aView addGestureRecognizer:tapGesture];
-    [self.view addSubview:aView];
-    [self.view bringSubviewToFront:aView];
+    [moviePlayer.view addSubview:aView];
 }
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
 	NSDictionary *notificationUserInfo = [notification userInfo];
