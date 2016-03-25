@@ -226,10 +226,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
 -(void) testTap:(UIGestureRecognizer *)gestureRecognizer {
-   		UIAlertController *alertController = [UIAlertController
-                              alertControllerWithTitle:alertTitle
-                              message:alertMessage
-                              preferredStyle:UIAlertControllerStyleAlert];
+
 }
 #pragma mark - Gesture Delegate
 // this allows you to dispatch touches
