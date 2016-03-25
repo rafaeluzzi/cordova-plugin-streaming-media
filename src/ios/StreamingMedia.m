@@ -311,8 +311,6 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 		[moviePlayer stop];
 		moviePlayer.controlStyle = MPMovieControlStyleNone;
 		[moviePlayer.view removeFromSuperview];
-		[aView removeFromSuperview];
-		aView = nil;
 		moviePlayer = nil;
 	}
 }
