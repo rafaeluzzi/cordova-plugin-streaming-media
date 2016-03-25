@@ -225,6 +225,14 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
 }
+-(void) testTap:(UIGestureRecognizer *)gestureRecognizer {
+	// open a alert with an OK and cancel button
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView"
+        message:@"My message" delegate:self cancelButtonTitle:@"Cancel"
+        otherButtonTitles:@"OK", nil];
+[alert show];
+[alert release];
+}
 #pragma mark - Gesture Delegate
 // this allows you to dispatch touches
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -236,7 +244,7 @@ NSString * const DEFAULT_IMAGE_SCALE = @"center";
 }
 - (void) willEnterFullScreen:(NSNotification*)notification
 {
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPlayerTapped:)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testTap:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.delegate = self;
     UIView *aView = [[UIView alloc] initWithFrame:moviePlayer.backgroundView.bounds];
